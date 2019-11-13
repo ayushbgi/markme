@@ -91,3 +91,29 @@ background-color:#595959;
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.sbuttonblue{
+  background-color:#0066ff;
+  border: none;
+  color: white;
+  padding: 6px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.sbuttonred{
+  background-color:red;
+  border: none;
+  color: white;
+  padding: 6px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

@@ -38,11 +38,13 @@ else{
     </div>
   </li>
 </ul>
+<form method="post" action="users.php">
  <table class="table1">
    <tr>
     <th>Id</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Change</th>
   </tr>
 <?php
  $query="SELECT * FROM emp";
@@ -59,6 +61,7 @@ else{
     <td><?php echo $row[0]; ?></td>
     <td><?php echo $row[1]; ?></td>
     <td><?php echo $row[3]; ?></td>
+    <td><input type="submit" class="sbuttonblue" value="Edit"><input type="submit" class="sbuttonred" value="Delete"></td>
   </tr>
  
   
@@ -77,6 +80,7 @@ else{
 
 ?>
 </table>
+</form>
 
 </body>
 </html>
