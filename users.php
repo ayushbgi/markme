@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("connection.php");
+echo $_POST['1'];
 if(isset( $_SESSION['SESS_id']) &&  $_SESSION['SESS_id']=="999" ) {
 
 
@@ -61,7 +62,7 @@ else{
     <td><?php echo $row[0]; ?></td>
     <td><?php echo $row[1]; ?></td>
     <td><?php echo $row[3]; ?></td>
-    <td><input type="submit" class="sbuttonblue" value="Edit"><input type="submit" class="sbuttonred" value="Delete"></td>
+    <td><input type="submit" class="sbuttonblue" value="Edit" name="<?php echo $row[0]?>"><input type="submit" class="sbuttonred" value="Delete" name="<?php echo $row[0]?>"></td>
   </tr>
  
   
