@@ -37,6 +37,7 @@ else{
 	session_start();
 	$_SESSION['SESS_id']=$uid;
 	$_SESSION['SESS_name']=$uname;
+	echo $uid;
 
 	if($uid=="999")
 	{
