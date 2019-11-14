@@ -6,7 +6,21 @@ $uid=$_SESSION['SESS_id'];
 $uname=$_SESSION['SESS_name'];
 $ab=0;
 $si=0;
+$le=0;
 $to=0;
+$pr=0;
+$date=date("Y-m-d");
+echo $date;
+$status=1;
+if(isset( $_POST['present'])) {
+
+  $query="INSERT INTO record(user,date,status) VALUES('$uid','$date','$status')";
+
+  $result = mysqli_query($conn,$query);
+       if (!$result)echo "INSERT failed: $query<br>".$connection->error . "<br><br>";
+
+
+}
 
 
 
@@ -29,6 +43,14 @@ $query="SELECT * FROM record WHERE user='$uid'";
         if($row[2]==0)
         {
           $ab=$ab+1;
+        }
+         if($row[2]==3)
+        {
+          $pr=$pr+1;
+        }
+         if($row[2]==4)
+        {
+          $le=$le+1;
         }
       }
                 
@@ -62,60 +84,7 @@ else{
 <head>
 <link rel="stylesheet" type="text/css" href="home.css">
 <style>
-* {
-  box-sizing: border-box;
-}
 
-
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-.red{
-background-color:red;
-color:white;
-}
-.orange{
-background-color:orange;
-color:white;
-}
-.green{
-background-color:green;
-color:white;
-}
-.yellow{
-background-color:#e6e600;
-color:white;
-}
 </style>
 
 </head>
@@ -132,7 +101,9 @@ color:white;
     </div>
   </li>
 </ul>
-
+<form action="mstat.php" method="post">
+<h1>Todays Attendence : <?php echo date("Y-m-d"); ?> : <input type="submit" name="present" class="sbuttonblue" value="Present"></h1>
+</form>
 
 <h2>Leave records</h2>
 
@@ -150,7 +121,7 @@ color:white;
   <div class="column">
     <div class="card orange">
       <h3>Absent</h3>
-      <p><?php echo $to; ?></p>
+      <p><?php echo $ab; ?></p>
       <hr>
       <p><?php echo $to; ?></p>
     </div>
@@ -159,7 +130,7 @@ color:white;
   <div class="column">
     <div class="card yellow">
     <h3>Sick Leave</h3>
-      <p><?php echo $si; ?></p>
+      <p><?php echo $le; ?></p>
       <hr>
       <p><?php echo $to; ?></p>
     </div>
@@ -167,8 +138,8 @@ color:white;
   
   <div class="column">
     <div class="card green">
-      <h3>Car</h3>
-      <p><?php echo $to; ?></p>
+      <h3>Worked</h3>
+      <p><?php echo $pr; ?></p>
       <hr>
       <p><?php echo $to; ?></p>
     </div>

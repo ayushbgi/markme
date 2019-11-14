@@ -71,7 +71,7 @@ else{
 <body>
 <ul>
   <li><a href="admin.php">Home</a></li>
-  <li><a href="#news">Statistics</a></li>
+  <li><a href="stats.php">Statistics</a></li>
   <li><a href="users.php"  class="active">Users</a></li>
   <li class="dropdown" style="float:right;">
     <a href="javascript:void(0)" class="dropbtn">Admin</a>

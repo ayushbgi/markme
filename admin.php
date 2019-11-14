@@ -26,8 +26,8 @@ else{
 </head>
 <body>
 <ul>
-  <li><a href="#home" class="active">Home</a></li>
-  <li><a href="#news">Statistics</a></li>
+  <li><a href="admin.php" class="active">Home</a></li>
+  <li><a href="stats.php">Statistics</a></li>
   <li><a href="users.php">Users</a></li>
   <li class="dropdown" style="float:right;">
     <a href="javascript:void(0)" class="dropbtn">Admin</a>
