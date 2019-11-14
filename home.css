@@ -117,3 +117,7 @@ background-color:#595959;
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.aid{
+  width: 80px !important;
+}
