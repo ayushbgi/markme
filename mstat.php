@@ -9,20 +9,21 @@ $si=0;
 $le=0;
 $to=0;
 $pr=0;
+$st=-1;
 $date=date("Y-m-d");
-echo $date;
 $status=1;
+
 if(isset( $_POST['present'])) {
+
+  if($st==(-1)){
 
   $query="INSERT INTO record(user,date,status) VALUES('$uid','$date','$status')";
 
   $result = mysqli_query($conn,$query);
        if (!$result)echo "INSERT failed: $query<br>".$connection->error . "<br><br>";
-
-
 }
-
-
+unset($_POST['present']);
+}
 
 if(isset( $_SESSION['SESS_id'])) {
 
@@ -34,8 +35,11 @@ $query="SELECT * FROM record WHERE user='$uid'";
    else{ 
     while($row=mysqli_fetch_row($result)){
 
+      $st=$row[2];
+      
+
       if($uid==$row[0])
-      { $to=$to+1;
+      { 
         if($row[2]==2)
         {
           $si=$si+1;
@@ -52,6 +56,10 @@ $query="SELECT * FROM record WHERE user='$uid'";
         {
           $le=$le+1;
         }
+        if($row[2]!=1)
+        {
+          $to=$to+1;
+        }
       }
                 
 
@@ -64,19 +72,21 @@ $query="SELECT * FROM record WHERE user='$uid'";
 
 
 }
-
-
 else{
 ?>
 
 <script type="text/javascript">
-        	
+          
         window.location="login.html";
         </script>
         <?php
 
 
 }
+
+
+
+
 	?>
 
 
@@ -102,7 +112,7 @@ else{
   </li>
 </ul>
 <form action="mstat.php" method="post">
-<h1>Todays Attendence : <?php echo date("Y-m-d"); ?> : <input type="submit" name="present" class="sbuttonblue" value="Present"></h1>
+<h1>Todays Attendence : <?php echo date("Y-m-d"); ?> : <input type="submit" name="present" class="sbuttonblue" value="Present" style="background-color:<?php if($st==-1){echo "red;";} if($st==1){echo "Orange;";} if($st==3){echo "green;";} ?>"  <?php if($st!=-1){echo "disabled";} ?>></h1>
 </form>
 
 <h2>Leave records</h2>

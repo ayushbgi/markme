@@ -2,7 +2,8 @@
 session_start();
 $ab=0;
 $si=0;
-$to=0;
+$pr=0;
+$li=0;
 if(isset( $_SESSION['SESS_id']) &&  $_SESSION['SESS_id']=="999" ) {
   require("connection.php");
   $uid=$_SESSION['SESS_id'];
@@ -29,6 +30,10 @@ $query="SELECT * FROM record WHERE date='$date'";
         if($row[2]==0)
         {
           $ab=$ab+1;
+        }
+        if($row[2]==3)
+        {
+          $pr=$pr+1;
         }
       
                 
@@ -60,6 +65,10 @@ if(isset($_POST['submit'])) {
         if($row[2]==0)
         {
           $ab=$ab+1;
+        }
+         if($row[2]==3)
+        {
+          $pr=$pr+1;
         }
       
                 
@@ -124,7 +133,7 @@ else{
   <div class="column">
     <div class="card orange">
       <h3>Leave</h3>
-      <p><h1><?php echo $to; ?></h1></p>
+      <p><h1><?php echo $li; ?></h1></p>
    </div>
   </div>
   
@@ -138,7 +147,7 @@ else{
   <div class="column">
     <div class="card green">
       <h3>Present</h3>
-      <p><h1><?php echo $to; ?></h1></p>
+      <p><h1><?php echo $pr; ?></h1></p>
    </div>
   </div>
 </div>
