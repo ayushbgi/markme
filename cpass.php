@@ -13,7 +13,7 @@ $query= "UPDATE emp SET pass = '$npass' WHERE pass='$opass' and id='$id'";
 
 
 $result = mysqli_query($conn,$query);
-       if (!$result)echo "INSERT failed: $query<br>".$connection->error . "<br><br>";
+       if (!$result)echo "INSERT failed: $query<br>".$conn->error . "<br><br>";
 
        ?>
 

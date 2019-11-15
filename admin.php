@@ -1,10 +1,20 @@
 <?php
 session_start();
 require("connection.php");
+
+
 if(isset( $_SESSION['SESS_id']) &&  $_SESSION['SESS_id']=="999" ) {
 
+if(isset($_POST('check')))
+{ 
+  $status=$_POST('check');
+$query= "UPDATE record SET status =3 WHERE id='$status'";
 
 
+$result = mysqli_query($conn,$query);
+       if (!$result)echo "INSERT failed: $query<br>".$conn->error . "<br><br>";
+}
+unset($_POST('check'));
 
 	}
 else{
@@ -48,6 +58,29 @@ else{
     <th>Status</th>
   </tr>
 
-  
+  <?php
+ $query="SELECT * FROM emp,record WHERE emp.id=record.user";
+   $result = mysqli_query($conn,$query);
+   if (!$result) echo "INSERT failed: $query<br>".$conn->error . "<br><br>";
+
+   else{ 
+    while($row=mysqli_fetch_row($result)){
+      ?>
+    <tr>
+    <td><?php echo $row[0]; ?></td>
+    <td><?php echo $row[1]; ?></td>
+    <td> <button type="submit" class="sbuttonblue" name="check" value="<?php echo $row[0]; ?>" style="background-color: <?php  if($row[6]==1){echo "yellow;";} if($row[6]==3){echo "Green;";}?>" >Present</button></td>
+  </tr>
+
+
+      <?php
+
+
+}}
+
+
+      ?>
+    </table>
+  </form>
 </body>
 </html>
