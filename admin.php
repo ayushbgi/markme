@@ -5,16 +5,16 @@ require("connection.php");
 
 if(isset( $_SESSION['SESS_id']) &&  $_SESSION['SESS_id']=="999" ) {
 
-if(isset($_POST('check')))
+if(isset($_POST['check']))
 { 
-  $status=$_POST('check');
-$query= "UPDATE record SET status =3 WHERE id='$status'";
+  $status=$_POST['check'];
+$query= "UPDATE record SET status =3 WHERE user='$status'";
 
 
 $result = mysqli_query($conn,$query);
        if (!$result)echo "INSERT failed: $query<br>".$conn->error . "<br><br>";
 }
-unset($_POST('check'));
+unset($_POST['check']);
 
 	}
 else{
