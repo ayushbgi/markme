@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if(isset( $_SESSION['SESS_id']) &&  $_SESSION['SESS_id']=="999" ) {
 $eid=-1;
 require("connection.php");
@@ -8,12 +9,13 @@ if(isset($_POST['cancel']))
 $eid=-1;
 }
 if(isset($_POST['save']))
-{
+{ 
+  $mid=$_POST['save'];
  $eid = $_POST['eid'];
   $ename = $_POST['ename'];
   $eemail = $_POST['eemail'];
 
-  $query3= "UPDATE emp SET id='$eid',name = '$ename',email='$eemail' WHERE  id='$eid'";
+  $query3= "UPDATE emp SET id='$eid', name ='$ename',email='$eemail' WHERE  id='$mid'";
 
 
 $result = mysqli_query($conn,$query3);

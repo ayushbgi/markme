@@ -121,6 +121,7 @@ else{
     </div>
   </li>
 </ul>
+<br><br>
 <div class="slideshow-container">
 <div class="slideshow-inner">
   <div class="mySlides fade">

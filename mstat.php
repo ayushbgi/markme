@@ -35,7 +35,7 @@ $query="SELECT * FROM record WHERE user='$uid'";
    else{ 
     while($row=mysqli_fetch_row($result)){
 
-      $st=$row[2];
+      
       
 
       if($uid==$row[0])
@@ -60,6 +60,7 @@ $query="SELECT * FROM record WHERE user='$uid'";
         {
           $to=$to+1;
         }
+        $st=$row[2];
       }
                 
 
@@ -67,7 +68,6 @@ $query="SELECT * FROM record WHERE user='$uid'";
 
 	}
 }
-
 
 
 

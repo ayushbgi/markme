@@ -38,5 +38,16 @@ else{
     </div>
   </li>
 </ul>
+
+
+<form method="post" action="admin.php">
+ <table class="table1">
+   <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Status</th>
+  </tr>
+
+  
 </body>
 </html>
